@@ -16,11 +16,10 @@ const NewToDo: React.FC<newToDoProps>= ({onAddTodo}) => {
     const todoSubmitHandler = (e: React.FormEvent) => {
         e.preventDefault();
         const enteredText = textInputRef.current!.value; // ! telling TS that it will be ok, no null case.
-        console.log('Input text: ', enteredText)
 
         //Passing the text to the function so App receives it.
         onAddTodo(enteredText)
-
+        textInputRef.current!.value =''
     }
 
   return (

@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from "react";
 
-import ToDoList from './components/ToDoList';
-import NewToDo from './components/NewToDo';
+import ToDoList from "./components/ToDoList";
+import NewToDo from "./components/NewToDo";
 
-const App: React.FC = () =>{
-  const todos = [
-    {id: 't1', text:'Finish this course'}
-]
-  const todoAddHandler = (text:string) => {
-    console.log(text)
-  }
+import { TodoInterface } from "../todo.model";
 
+const App: React.FC = () => {
+  // Initialize state at empty array BUT be explicit about it being an array of objects {id:''; text''}
+  const [todos, setTodos] = useState<TodoInterface[]>([]);
+
+  const todoAddHandler = (text: string) => {
+    
+    setTodos(prevTodos => [...prevTodos, {id: Math.random().toString(), text: text }])
+    // Option 2
+    // setTodos([...todos, { id: Math.random().toString(), text: text }]);
+  };
+  console.log(todos);
   return (
     <div className="App">
-
       <h1>Hello, TS + React Demo!</h1>
-      <NewToDo onAddTodo = {todoAddHandler}/>
-      <ToDoList items = {todos}/>
+      <NewToDo onAddTodo={todoAddHandler} />
+      <ToDoList items={todos} />
     </div>
   );
-}
+};
 
 export default App;
