@@ -1,0 +1,11 @@
+.app {
+    width:80%;
+    margin: 0 auto;
+    background-color: rgb(178, 144, 209);
+    padding:2em;
+    display:flex; 
+    flex-flow:column;
+    align-items: center;
+    max-width:1920px;
+    color:white;
+}

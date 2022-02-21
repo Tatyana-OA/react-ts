@@ -1,0 +1,17 @@
+.form-control{
+    display:flex;
+    flex-flow:row;
+    align-items: center;
+}
+.form-control button {
+    margin-left:1em;
+    background-color: white;
+    border-radius:1em;
+    border: 2px solid darkorchid;
+    padding: 0.25em 0.85em
+}
+.form-control input {
+    border: 2px solid darkorchid;
+    border-radius:1em;
+    height:1.5em;
+}

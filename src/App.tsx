@@ -5,6 +5,8 @@ import NewToDo from "./components/NewToDo";
 
 import { TodoInterface } from "../todo.model";
 
+import './App.css'
+
 const App: React.FC = () => {
   // Initialize state at empty array BUT be explicit about it being an array of objects {id:''; text''}
   const [todos, setTodos] = useState<TodoInterface[]>([]);
@@ -23,8 +25,8 @@ const App: React.FC = () => {
   }
   console.log(todos);
   return (
-    <div className="App">
-      <h1>Hello, TS + React Demo!</h1>
+    <div className="app">
+      <h1 className="title">Your React+TS Todo App!</h1>
       <NewToDo onAddTodo={todoAddHandler} />
       <ToDoList items={todos} onDeleteTodo={todoDeleteHandler}/>
     </div>
