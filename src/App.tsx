@@ -7,12 +7,15 @@ const App: React.FC = () =>{
   const todos = [
     {id: 't1', text:'Finish this course'}
 ]
+  const todoAddHandler = (text:string) => {
+    console.log(text)
+  }
 
   return (
     <div className="App">
 
       <h1>Hello, TS + React Demo!</h1>
-      <NewToDo />
+      <NewToDo onAddTodo = {todoAddHandler}/>
       <ToDoList items = {todos}/>
     </div>
   );

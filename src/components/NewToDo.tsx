@@ -1,6 +1,15 @@
 import React, { useRef } from "react";
 
-const NewToDo: React.FC = () => {
+interface newToDoProps {
+    onAddTodo: (todoText : string) => void;
+}
+
+// Using a type -> a function that takes in a string and returns void
+// type newToDoProps = {
+//     onAddTodo: (todoText: string) => void;
+// }
+
+const NewToDo: React.FC<newToDoProps>= ({onAddTodo}) => {
     //Specify the kind of element that will be stored in the ref with default value of null
     const textInputRef = useRef<HTMLInputElement>(null);
 
@@ -9,12 +18,15 @@ const NewToDo: React.FC = () => {
         const enteredText = textInputRef.current!.value; // ! telling TS that it will be ok, no null case.
         console.log('Input text: ', enteredText)
 
+        //Passing the text to the function so App receives it.
+        onAddTodo(enteredText)
+
     }
 
   return (
     <form onSubmit={todoSubmitHandler}>
       <div>
-        <label htmlFor="todo-text">Todo Item</label>
+        <label htmlFor="todo-text">Todo: </label>
         <input type="text" id="todo-text" ref={textInputRef}/>
       </div>
       <button type="submit">ADD TODO</button>
